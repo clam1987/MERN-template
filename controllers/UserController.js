@@ -9,7 +9,7 @@ module.exports = {
     },
     login: (req, res) => {
         const { id, username } = req.user
-        res.json({ token: jwt.sign({id}), username, id });
+        res.json({ token: "Bearer " + jwt.sign({id}), username, id });
     },
     logout: (req, res) => {
         if(req.user) {
