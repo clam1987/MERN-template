@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "MERN template",
   "main": "server.js",
-  "proxy": "http://localhost:3001",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
