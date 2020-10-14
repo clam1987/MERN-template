@@ -11,6 +11,10 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
+
 app.use(apiRoutes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/myproject", { useNewUrlParser: true });
