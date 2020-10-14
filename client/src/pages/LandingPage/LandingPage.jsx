@@ -11,7 +11,7 @@ const LandingPage = () => {
         <div id="parallax-world-of-ugg">
                   <button onClick={logout}>Logout</button>
         <section>
-          <div class="title">
+          <div className="title">
         <h3>{user.username}</h3>
     <h1>{fullName(user)}</h1>
           </div>

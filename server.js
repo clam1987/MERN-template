@@ -2,7 +2,7 @@ const express = require("express"),
       app = express(),
       mongoose = require("mongoose"),
       passport = require("passport"),
-      apiRoutes = require("./routes");
+      apiRoutes = require("./routes"),
       PORT = process.env.PORT || 3001;
 require("dotenv").config();
 

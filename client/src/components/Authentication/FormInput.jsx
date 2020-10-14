@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FormInput = ({ fields, handleChange }) => {
-    const { name, placeholder } = fields
+    const { name, placeholder, type } = fields
     const handleInputChange = e => {
         const { value, name } = e.target;
         handleChange({[name]: value})
@@ -9,7 +9,7 @@ const FormInput = ({ fields, handleChange }) => {
     
     return (
     <div className="form-group">
-        <input type="text" id={name} placeholder={placeholder} name={name} onChange={handleInputChange} />
+        <input type={type} id={name} placeholder={placeholder} name={name} onChange={handleInputChange} />
     </div>
     )
 }

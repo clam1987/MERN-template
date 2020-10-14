@@ -4,7 +4,6 @@ import { useAuth } from '../../utils/auth/';
 
 const ProtectedRoute = ({ onLoginFail = "/login", ...rest }) => {
     const { isLoggedIn } = useAuth();
-    console.log(isLoggedIn)
     return isLoggedIn ? (
         <Route {...rest} />
     ) : (

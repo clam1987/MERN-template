@@ -1,22 +1,21 @@
 import React, { useState, useRef } from "react";
 import { Redirect } from "react-router-dom";
 import { signup, useAuth } from "../../utils/auth/";
-import API from "../../utils/axios/API";
 import {
   AuthenticationContainer,
   AuthenticationForm,
 } from "../../components/Authentication/";
 
 const loginFields = [
-  { name: "username", placeholder: "username" },
-  { name: "password", placeholder: "password" },
+  { name: "username", type: "text", placeholder: "username" },
+  { name: "password", type: "password", placeholder: "password" },
 ];
 const signUpFields = [
-  { name: "username1", placeholder: "username" },
-  { name: "password1", placeholder: "password" },
-  { name: "email", placeholder: "JohnSmith@gmail.com" },
-  { name: "firstName", placeholder: "First Name" },
-  { name: "lastName", placeholder: "Last Name" },
+  { name: "username1", type: "text", placeholder: "username" },
+  { name: "password1", type: "password", placeholder: "password" },
+  { name: "email", type: "text", placeholder: "JohnSmith@gmail.com" },
+  { name: "firstName", type: "text", placeholder: "First Name" },
+  { name: "lastName", type: "text", placeholder: "Last Name" },
 ];
 
 const Login = () => {
@@ -58,6 +57,8 @@ const Login = () => {
         login(formData);
     } else {
         signup(formData);
+        const { username1, password1 } = formData;
+        login({username: username1, password: password1});
     }
   };
 

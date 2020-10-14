@@ -1,8 +1,9 @@
 const isUserAuthenticated = (req, res, next) => {
-  if (req.headers.authorization) {
-    next();
-  } else {
-    res.send("You must login!");
+const { authorization } = req.headers
+if (!authorization) {
+  return res.status(401).send("You must login!");
+} else {
+  next();
   }
 };
 
