@@ -8,18 +8,25 @@ module.exports = {
         res.send("You've created your user")
     },
     login: (req, res) => {
-        const { id, username } = req.user
-        res.json({ token: "Bearer " + jwt.sign({id}), username, id });
+        const { id } = req.user
+        res.json({ token: jwt.sign({id}), token_type: "Bearer" });
     },
     logout: (req, res) => {
-        if(req.user) {
-            req.session.destroy(err => {
-                if (err) throw err;
-                res.send({ message: "User logged out" });
-            });
-            req.logout();
-        } else {
-            res.send({ message: "no user to logout" });
-        };
+        console.log(req.user)
+        // if(req.user) {
+        //     req.session.destroy(err => {
+        //         if (err) throw err;
+        //         res.send({ message: "User logged out" });
+        //     });
+        //     req.logout();
+        // } else {
+        //     res.send({ message: "no user to logout" });
+        // };
+        req.logout();
+    },
+    getUser: async (req, res) => {
+        const { id } = req.params
+        const data = await User.findById(id)
+        res.json(data)
     }
 };

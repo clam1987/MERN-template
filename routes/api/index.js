@@ -5,8 +5,7 @@ const isUserAuthenticated = require("../../middleware/isAuthenticated");
 router.use("/users", userRoutes);
 
 router.get("/secret", isUserAuthenticated, (req, res) => {
-    console.log("works?")
-    res.send("this is a secret!");
+  res.send("this is a secret!");
 });
 
 module.exports = router;
