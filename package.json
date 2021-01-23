@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "npm run kill && nodemon server",
     "start:prod": "node server.js",
     "watch": "npm run kill && nodemon server.js",
     "kill": "kill-port 3001",

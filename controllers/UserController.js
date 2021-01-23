@@ -12,7 +12,7 @@ module.exports = {
             User.findOne({$or: [{email}, {username}]}).then(user => {
                 if(user === null) {
                     User.create(req.body)
-                    return res.status(200).end();
+                    return res.status(200).json('User created');
                 };
 
                 if(email === user.email) {
@@ -38,7 +38,6 @@ module.exports = {
         }
     },
     logout: (req, res) => {
-        console.log(req);
         try {
             if(req.user) {
                 req.session.destroy(err => {
